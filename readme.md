@@ -4,4 +4,6 @@
 
 # Usei recursos como fetch, blocos try-catch e requisições assíncronas.
 
-# Criei uma máscara para o input com Javascript Replace.
+# Criei uma máscara para o input.
+
+# Correções de alguns bugs e novas features virão no próximo commit.
