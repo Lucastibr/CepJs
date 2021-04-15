@@ -1,15 +1,21 @@
 let input = null;
 
 window.addEventListener('load', () => {
+    setTimeout(() =>{
+        toastr.info('Você pode pesquisar apertando Enter ou clicando no Botão')
+    }, 1000)
+  
     search();
 });
 
 const search = () => {
-    
     const anotherInput = document.getElementById('cepInput');
+    const search = document.getElementById('search');
+
     anotherInput.focus();
 
-    anotherInput.addEventListener('keypress', (event) => {
+    // Busca ao apertar enter
+    anotherInput.addEventListener('keypress', (event, click) => {
         if (event.key === 'Enter') {
                 if(event.target.value === null || event.target.value === "")
                 {
@@ -24,21 +30,25 @@ const search = () => {
             searchPostalCode();
         }
     });
+
+    // Busca ao clicar no botão
+    search.addEventListener('click', () => {
+        input = anotherInput.value;
+        searchPostalCode();
+    })
 }
 
 const searchPostalCode = async () => {
 
     try {
-        const spinner = document.getElementById('loader');
-
         const response = await fetch(`https://api.postmon.com.br/v1/cep/${input}`)
         const json = await response.json();
         var tbody = document.querySelector('#tbody');
-        for (var [key, value] of Object.entries(json)) {
+        for (var [_, value] of Object.entries(json)) {
                 var td = document.createElement('td')
                 tbody.appendChild(td);
                 td.innerHTML = value;
-                console.log(value);
+                console.log(value);      
        }
     } catch (error) {
      Swal.fire(
