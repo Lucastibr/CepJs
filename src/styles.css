@@ -1,5 +1,9 @@
 body{
     font-family: 'JetBrains Mono', 'Helvetica Neue';
-    color: #2B3D41;
+    color: #fff;
+    background-color: #121212
 }
 
+.table-bordered{
+    color: #fff;
+}

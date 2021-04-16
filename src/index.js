@@ -2,12 +2,25 @@ let input = null;
 
 window.addEventListener('load', () => {
     setTimeout(() =>{
-        toastr.info('Você pode pesquisar apertando Enter ou clicando no Botão')
+        toast();
     }, 1000)
   
     search();
 });
 
+const toast = () => {
+    Toastify({
+        text: "Você pode buscar um CEP apertando Enter ou clicando no Botão",
+        duration: 5000,
+        newWindow: true,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        onClick: function(){} // Callback after click
+      }).showToast();
+}
 const search = () => {
     const anotherInput = document.getElementById('cepInput');
     const search = document.getElementById('search');
