@@ -8,4 +8,4 @@
 
 # Correções de alguns bugs e novas features virão no próximo commit.
 
-![alt text](cepjs.png)
+![alt text](src/cepjs.png)
